@@ -1,0 +1,34 @@
+:root {
+  /* Cyber-Academic Dark Palette */
+  --bg-main: #060913;
+  --bg-card: rgba(12, 18, 34, 0.75);
+  --bg-card-hover: rgba(18, 28, 52, 0.85);
+  --bg-glass: rgba(14, 22, 42, 0.65);
+  --bg-glass-input: rgba(6, 9, 19, 0.7);
+
+  /* Borders & Glows */
+  --border-glass: rgba(0, 242, 254, 0.12);
+  --border-glass-hover: rgba(0, 242, 254, 0.35);
+  --glow-cyan: 0 0 35px rgba(0, 242, 254, 0.22);
+  --glow-emerald: 0 0 35px rgba(16, 185, 129, 0.22);
+  --glow-amber: 0 0 35px rgba(245, 158, 11, 0.22);
+
+  /* Accents */
+  --accent-cyan: #00f2fe;
+  --accent-blue: #4facfe;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-rose: #f43f5e;
+  --accent-purple: #a855f7;
+
+  /* Typography */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  /* Layout */
+  --max-width: 1200px;
+}
