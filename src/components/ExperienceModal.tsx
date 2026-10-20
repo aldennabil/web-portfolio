@@ -22,7 +22,7 @@ export const ExperienceModal: React.FC<ExperienceModalProps> = ({
           <X size={18} />
         </button>
 
-        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--accent-cyan)', fontWeight: 600, marginBottom: '0.4rem' }}>
+        <div style={{ fontFamily: 'var(--font-heading)', fontSize: '0.78rem', color: 'var(--accent-blue)', fontWeight: 700, letterSpacing: '0.5px', marginBottom: '0.4rem' }}>
           ORGANIZATIONAL LEADERSHIP
         </div>
 
@@ -30,7 +30,7 @@ export const ExperienceModal: React.FC<ExperienceModalProps> = ({
           {experience.role}
         </h2>
 
-        <div style={{ fontSize: '0.92rem', color: 'var(--accent-amber)', fontWeight: 600, marginBottom: '1.25rem' }}>
+        <div style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', fontWeight: 600, marginBottom: '1.25rem' }}>
           {experience.organization} ({experience.period})
         </div>
 

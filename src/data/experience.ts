@@ -69,30 +69,17 @@ export const EXPERIENCE_DATA: Experience[] = [
     badgeGradient: "linear-gradient(135deg, #7c3aed, #0f172a)"
   },
   {
-    id: "consulting",
-    role: "Statistical Consultant & Researcher",
-    organization: "Postgraduate Agricultural Lab Research",
-    period: "Jan 2026 – Mar 2026",
-    summary: "Executed Two-Factor RCBD ANOVA and Tukey's HSD tests on 3-month experimental lab data, translating microbial metrics using ADEPT framework.",
+    id: "ta-psd",
+    role: "Teaching Assistant for Introduction to Data Science",
+    organization: "IPB University • Department of Statistics & Data Science",
+    period: "Aug 2025 – Dec 2025",
+    summary: "Guided 80+ undergraduate students through practical data science labs covering Python, R programming, exploratory data analysis, and predictive modeling.",
     highlights: [
-      "Executed Two-Factor Randomized Complete Block Design (RCBD) ANOVA and Tukey's HSD post-hoc tests on 3-month experimental lab data.",
-      "Delivered statistical consulting translating complex microbial and physicochemical data into actionable domain insights using the ADEPT framework."
+      "Mentored and guided 80+ undergraduate students in laboratory sessions covering Python, R, EDA, web scraping, and regression modeling.",
+      "Prepared laboratory rubrics, evaluated hands-on programming assignments, and conducted weekly code-review discussions.",
+      "Facilitated capstone project guidance, assisting student teams from problem formulation to final statistical presentations."
     ],
-    badgeText: "🧪 STATISTICAL CONSULTING",
-    badgeGradient: "linear-gradient(135deg, #0f766e, #1e293b)"
-  },
-  {
-    id: "gammafest-team",
-    role: "Data Science Competition Lead",
-    organization: "Gammafest 2026 (3rd Place & Most Applicable)",
-    period: "Apr 2026 – Jun 2026",
-    summary: "Architected end-to-end ML strategy, pipeline engineering, and Bayesian Optuna hyperparameter sweeps across 121k+ match observations.",
-    highlights: [
-      "Awarded 3rd Winner and Most Applicable nationwide.",
-      "Engineered end-to-end predictive pipeline across 121,000+ matches over 154 years with zero leakage.",
-      "Architected hybrid Poisson + LightGBM models with Bayesian Optuna optimization."
-    ],
-    badgeText: "🏆 GAMMAFEST 2026 LEAD",
-    badgeGradient: "linear-gradient(135deg, #b45309, #78350f)"
+    badgeText: "TEACHING ASSISTANT",
+    badgeGradient: "linear-gradient(135deg, #2563eb, #1e293b)"
   }
 ]

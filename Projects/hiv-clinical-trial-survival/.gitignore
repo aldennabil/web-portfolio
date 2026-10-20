@@ -1,0 +1,77 @@
+﻿# .gitignore â€” [Project Name]
+
+# â”€â”€â”€ Data (never commit raw or processed data) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+data/raw/
+data/processed/
+data/external/
+data/interim/
+
+# â”€â”€â”€ Allowed: small anonymized sample only â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# data/sample/ is intentionally NOT ignored
+
+# â”€â”€â”€ All data file formats â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+*.csv
+*.xlsx
+*.xls
+*.parquet
+*.feather
+*.hdf5
+*.h5
+*.db
+*.sqlite
+
+# â”€â”€â”€ Model weights â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+*.pth
+*.pt
+*.pkl
+*.pickle
+*.joblib
+*.onnx
+
+# â”€â”€â”€ Archives â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+*.zip
+*.7z
+*.tar.gz
+
+# â”€â”€â”€ Credentials â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+kaggle.json
+.env
+.env.*
+secrets.json
+
+# â”€â”€â”€ Unpublished papers & internal docs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+*.docx
+*.pptx
+*_Laporan.pdf
+*Makalah*
+*Presentasi*.pdf
+pertanyaan_juri*
+laporan_komprehensif*
+REFERENCE*
+*Orisinalitas*
+
+# â”€â”€â”€ OS / Editor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+.DS_Store
+Thumbs.db
+desktop.ini
+*.Rhistory
+.RData
+.Rproj.user/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# â”€â”€â”€ Explicitly ALLOW â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/sample/.gitkeep
+!reports/figures/*.png
+!reports/figures/*.svg
+!notebooks/*.ipynb
+!src/**
+!requirements.txt
+!README.md
+!.gitignore
+

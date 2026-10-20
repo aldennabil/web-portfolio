@@ -89,3 +89,12 @@ git push origin main
 ```
 
 Vercel will detect the push and redeploy your live site automatically in ~20 seconds!
+
+
+## Portfolio rebuild release gate
+
+The rebuild is verified locally before publication. Do not upload private raw project folders or the `.superpowers` execution snapshot. Only permitted, referenced artifacts belong under `public`.
+
+Run content validation, deterministic sync, all tests, build, then the isolated browser checks against a production preview. Confirm the CV and artifact URLs, both languages, direct case-study URLs, empty search, failed image/clipboard behavior and mobile layout. Keep the release commit or backup reference for rollback.
+
+Unreviewed Indonesian case-study sections intentionally fall back to labeled English. The current SPA does not provide unique crawler-visible social cards per case study. Recruiter conversion and Lighthouse scores must be measured separately. This implementation does not publish automatically.

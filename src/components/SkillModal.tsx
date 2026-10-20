@@ -24,7 +24,7 @@ export const SkillModal: React.FC<SkillModalProps> = ({
           <X size={18} />
         </button>
 
-        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--accent-cyan)', fontWeight: 600, marginBottom: '0.3rem' }}>
+        <div style={{ fontFamily: 'var(--font-heading)', fontSize: '0.78rem', color: 'var(--accent-blue)', fontWeight: 700, letterSpacing: '0.5px', marginBottom: '0.3rem' }}>
           SKILL PROOF &amp; CASE STUDIES
         </div>
 
@@ -47,11 +47,11 @@ export const SkillModal: React.FC<SkillModalProps> = ({
                 <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff', marginBottom: '0.2rem' }}>
                   {project.title}
                 </div>
-                <div style={{ fontSize: '0.78rem', color: 'var(--accent-cyan)' }}>
+                <div style={{ fontSize: '0.78rem', color: 'var(--accent-blue)', fontWeight: 600 }}>
                   {project.award || project.category} • {project.period}
                 </div>
               </div>
-              <ArrowRight size={18} color="var(--accent-cyan)" />
+              <ArrowRight size={18} color="var(--accent-blue)" />
             </div>
           ))}
         </div>

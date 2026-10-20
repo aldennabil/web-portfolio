@@ -1,190 +1,63 @@
-# Non-Developer Content Management Guide
+# Portfolio content maintenance
 
-Welcome! This guide explains how to easily add, edit, or remove projects, update your bio, add certifications, or change links without writing any complex code.
+The canonical project source is `Projects/<folder>/README.md`. Raw project files remain ignored by Git; only those top-level READMEs are included. The published dataset is generated at `src/data/projects.ts`.
 
-All website content is located inside the simple, human-readable **`src/data/`** directory.
+## Editing projects
 
----
+- Preserve the project `id`: it is used by case-study URLs and competencies.
+- Edit the `portfolio` frontmatter for public-facing copy. It contains localized `summary`, `status`, `contribution`, `teamContribution`, `problem`, `methodology`, `results`, `limitations`, `caption`, plus `competencyIds` and optional `spotlightOrder`.
+- Localized text requires `en`; `id` is optional. Missing Indonesian sections render in English with a notice and correct language markup.
+- Exactly four projects currently have spotlight order: Gammafest, DEKA, FinSight and Coffee Shop. Every project remains in the searchable archive.
+- Keep individual contribution separate from team methods. Put estimates and limitations in the text. Do not promote unverified claims into summaries.
+- Source evidence paths are internal metadata. The public editorial projection only retains known display fields and verified/estimated claim statements.
 
-## 1. How to Add a New Project
+## Sources and artifacts
 
-1. Open `src/data/projects.ts` in your code editor.
-2. Scroll to the `PROJECTS_DATA` list.
-3. Copy this template and paste it at the top or bottom of the array:
+`artifacts` paths are relative to the source project folder. All declared files must exist. Notebook and dataset arrays retain every entry. `extra` accepts a label and a file path for certificates or other evidence. Public URLs must use HTTPS.
 
-```ts
-{
-  id: "my-new-project",
-  title: "Your Project Title Here",
-  category: "Predictive Analytics & Machine Learning", // "BI & Analytics Engineering" | "Predictive Analytics & Machine Learning" | "Decision Science & Risk"
-  period: "July 2026",
-  award: "Optional Award (e.g. 🏆 3rd Place)", // Leave "" if none
-  summary: "A 2-3 sentence overview describing the objective, methodology, and key quantitative outcome.",
-  tags: ["Python", "PyTorch", "Time Series", "SQL"],
-# 📘 Alden Nabil's Portfolio — Non-Developer Content Guide
+`projects:sync` copies artifacts into `public/artifacts/<id>/`, retaining nested paths. Text reports and notebooks have workstation file paths redacted in the published copy. Notebook JSON remains valid; source files are not modified. Only attach material that may be public. Never add client datasets merely to fill an empty source section.
 
-Welcome! This guide is designed so you can easily update your **bio, projects, certificate proof images, experience milestones, and downloadable CV** at any time without touching complex application code.
+Run:
 
-All website data is centralized inside simple, readable files in **`src/data/`** (and mapped in `public/images/`).
-
----
-
-## 📁 1. Asset Folders Directory Map
-
-To add or update photos, PDFs, or banners, simply drop the files into the corresponding folder inside `public/`:
-
-```
-public/
-├── avatar.jpg                           <-- Your hero portrait (Foto KTM)
-├── resume.pdf                           <-- Downloadable ATS Resume / CV PDF
-├── images/
-│   ├── certifications/                 <-- All Certificate proof photos (PNG/JPG)
-│   │   ├── bnsp-data-analyst.png
-│   │   ├── toeic-score-report.png
-│   │   ├── pmi-pm-ready.png
-│   │   └── ...
-│   ├── projects/                        <-- Project 16:9 thumbnails & gallery photos
-│   │   ├── finsight-dashboard.png
-│   │   ├── coffee-wars-mds.png
-│   │   ├── deka-team.jpg
-│   │   └── ...
-│   └── experience/                      <-- Experience header banners & team photos
-│       ├── sre-banner.jpg
-│       ├── stem-team.jpg
-│       └── ...
+```powershell
+npm.cmd run projects:validate
+npm.cmd run projects:sync
+npm.cmd run test
+npm.cmd run build
 ```
 
----
+A missing artifact, duplicate ID or missing existing project fails synchronization before any generated data is overwritten. Run sync twice to check deterministic output. On Windows, the TypeScript runner may require an unrestricted local shell because it reads Windows user information.
 
-## 🎓 2. How to Update Certifications & Proof Images
+## Skills, experience and credentials
 
-All certifications are configured in `src/data/certifications.ts`. Each row in the portfolio holds **exactly 4 certificates** on desktop.
+`src/data/skills.ts` contains capability rows referencing stable project IDs. No proficiency percentages. Add tools only when a project demonstrates individual usage. Profile, experience and certificate records remain manually maintained in their existing data files.
 
-### 🖼️ Adding / Updating a Certificate Image:
-1. Save your certificate screenshot or exported PNG into `public/images/certifications/` (e.g., `my-new-cert.png`).
-2. Open `src/data/certifications.ts` and add or edit the entry:
+Experiences use inline disclosures; credentials link directly to proof. Relevant collaborative work is presented as project work, not invented employment.
 
-```typescript
-{
-  id: "bnsp-data-analyst",
-  title: "BNSP Certified Data Analyst",
-  issuer: "LSP TIK Global • National Professional Certification Board",
-  year: 2026,
-  category: "Professional National Certification",
-  image: "/images/certifications/bnsp-data-analyst.png", // <-- Your certificate proof image
-  pdfUrl: "/images/certifications/bnsp-data-analyst.png", // <-- Opens image directly (or PDF)
-  isFeatured: true,                                       // <-- Set true for glowing neon highlight
-  featuredBadge: "⭐ FEATURED CREDENTIAL",               // <-- Custom ribbon text
-  openImageOnly: true                                     // <-- Set true to show only cropped image
-}
+## Local preview and checks
+
+```powershell
+npm.cmd run dev
+npm.cmd run build
+npm.cmd run preview -- --host 127.0.0.1 --port 4317 --strictPort
+node scripts/browser-check.mjs
 ```
 
-> [!TIP]
-> **Highlighting Key Credentials**: Setting `isFeatured: true` will automatically give the certificate card a vibrant cyan/amber neon glowing border and a top ribbon badge!
+The browser script uses an installed Chromium browser with a temporary isolated profile, tests only the localhost preview, and saves screenshots under `.superpowers/portfolio-rebuild/`. It never uses a signed-in browser session or uploads project files. Set `PORTFOLIO_TEST_URL` to change the localhost test origin.
 
----
+Long-form translation and case-study evidence questions remain in Section 11 of `docs/superpowers/plans/2026-10-20-portfolio-rebuild.md`.
 
-## 🚀 3. How to Update Projects, Action Links & Multi-Photo Gallery
 
-All 16 projects are managed in `src/data/projects.ts`.
+## Current skill cards and browsing (2026-10-20 refinement)
 
-### 📝 Example Project Schema:
-```typescript
-{
-  id: "gammafest",
-  title: "Football Outcome & Score Prediction",
-  category: "Predictive Analytics & ML",
-  period: "Apr – Jun 2026",
-  award: "🏆 3rd Winner & Most Applicable • Gammafest 2026",
-  
-  // 16:9 Thumbnail Image (or leave "" to auto-generate a sleek mathematical formula badge)
-  image: "/images/projects/gammafest-thumb.png",
-  formulaBadge: "λ ~ Poisson(Elo_diff)",
-  
-  summary: "Modeled 121,000+ matches over 154 years with zero leakage and optimized hybrid LightGBM models.",
-  
-  // Modal Deep-Dive Sections:
-  problem: "Forecasting outcomes across 121,000+ matches with severe train-test feature disparity.",
-  methodology: "Designed zero-leakage Elo rating state-propagation generating 56 metrics + Optuna LightGBM.",
-  results: "Reduced non-linear AW-MAE from 2.69 to 1.98, winning 3rd Place nationwide.",
-  
-  tags: ["Python", "LightGBM", "Optuna", "Elo Rating"],
-  
-  // External Action Buttons (leave blank "" if not yet available):
-  githubUrl: "https://github.com/aldennabil/football-outcome-prediction-gammafest",
-  paperUrl: "https://example.com/paper.pdf",
-  demoUrl: "https://gammafest-demo.streamlit.app",
-  
-  // Multi-Photo Gallery (Up to 5 images shown at the bottom of the case study modal):
-  gallery: [
-    "/images/projects/gammafest-chart1.png",
-    "/images/projects/gammafest-chart2.png",
-    "/images/projects/gammafest-award.jpg"
-  ]
-}
-```
+`src/data/skills.ts` contains three `SKILL_CATEGORIES` and 35 `RATED_SKILLS`, split into 28 technical and seven nontechnical entries. Ten ratings were supplied directly by Alden: Python 4, R 4, EDA 4, data cleaning 5, forecasting 4, ETL 4, SQL 3, PostgreSQL 3, dashboards 3, leadership 4. Other entries use `score: null` and display Unrated. Do not infer additional scores, including separate Power BI or Tableau ratings.
 
----
+Tool SVGs are stored locally under `public/images/tools/`; source attribution and the bundled license are included there. The hero overview must remain at most 30 words in both languages.
 
-## 👔 4. How to Update Leadership & Experience
+The archive uses All projects, Data Science & ML, Statistics & Risk, BI & Data Systems, and Others. Primary project assignments are in `src/lib/project-filters.ts`. All projects remain accessible as horizontal cards. `HorizontalRail` provides shared button, keyboard, scroll and reduced-motion behavior.
 
-All 7 organizational leadership entries are managed in `src/data/experience.ts`:
+Experience excludes DEKA/FinSight and academic project collaborations. Teaching appointments and organizational roles remain. Experience and credential proof are separate horizontal rails. Selected project cards use equal sizes at the user's request.
 
-```typescript
-{
-  id: "sre",
-  role: "Head of External and Public Relations",
-  organization: "Society of Renewable Energy (SRE), IPB Chapter",
-  period: "Jan 2025 – Jan 2026",
-  summary: "Secured 10 media partnerships and orchestrated 2 major inter-organizational study events.",
-  
-  // Modal Popup Bullet Points:
-  highlights: [
-    "Secured 10 strategic media partnerships and orchestrated 2 major study events.",
-    "Expanded community reach to an active network of over 100 participants.",
-    "Directed external relations and stakeholder engagement."
-  ],
-  
-  // Optional Documentation Gallery (up to 5 team photos):
-  gallery: [
-    "/images/experience/sre-team.jpg",
-    "/images/experience/sre-event.jpg"
-  ]
-}
-```
+The Why Me section contains My toolkit, Where my skills connect, and My credentials. Toolkit entries use two compact horizontal rows. Each subskill has an explicit `projectIds` evidence list, used by the accessible related-project dialog. Keep these mappings specific to the method, rather than returning every project in its category. The dialog supports Tab cycling, Escape, backdrop dismissal, focus restoration and browser-history dismissal. Keep its close callback stable across renders.
 
----
-
-## 👤 5. Updating Bio, Links & Downloadable CV
-
-Open `src/data/profile.ts`:
-
-```typescript
-export const PROFILE_DATA = {
-  fullName: "ALDEN NABIL WIBOWO EFFENDY",
-  roleTitle: "Statistical Data Scientist & Quantitative Analyst",
-  tagline: "Statistics & Data Science undergraduate at IPB University (GPA: 3.83/4.00) specializing in tabular machine learning, BI data modeling, and econometric risk forecasting.",
-  location: "South Tangerang, Indonesia",
-  email: "aldennabil31@gmail.com",
-  github: "https://github.com/aldennabil",
-  linkedin: "https://linkedin.com/in/aldennabil",
-  medium: "https://medium.com/@aldennabil31",
-  resumePath: "/resume.pdf"
-};
-```
-
-To update your CV file, simply overwrite `public/resume.pdf` with your updated PDF.
-
----
-
-## ⚡ 6. Deploying Changes
-
-Once you update any text or images:
-1. Test locally by running: `npm run dev`
-2. Push your changes to GitHub:
-   ```bash
-   git add .
-   git commit -m "Update portfolio projects and proof images"
-   git push origin main
-   ```
-3. Vercel will **automatically build and deploy** your changes live to **`aldennabil.vercel.app`** in less than 30 seconds!
+Hero intersections are three plain labels. Profile social cards use `PROFILE_DATA`, including the supplied Instagram URL `https://instagram.com/aldennabilwe`; location is Greater Jakarta, Indonesia. Tool marks remain local assets with attribution.

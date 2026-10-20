@@ -1,34 +1,8 @@
-:root {
-  /* Cyber-Academic Dark Palette */
-  --bg-main: #060913;
-  --bg-card: rgba(12, 18, 34, 0.75);
-  --bg-card-hover: rgba(18, 28, 52, 0.85);
-  --bg-glass: rgba(14, 22, 42, 0.65);
-  --bg-glass-input: rgba(6, 9, 19, 0.7);
-
-  /* Borders & Glows */
-  --border-glass: rgba(0, 242, 254, 0.12);
-  --border-glass-hover: rgba(0, 242, 254, 0.35);
-  --glow-cyan: 0 0 35px rgba(0, 242, 254, 0.22);
-  --glow-emerald: 0 0 35px rgba(16, 185, 129, 0.22);
-  --glow-amber: 0 0 35px rgba(245, 158, 11, 0.22);
-
-  /* Accents */
-  --accent-cyan: #00f2fe;
-  --accent-blue: #4facfe;
-  --accent-emerald: #10b981;
-  --accent-amber: #f59e0b;
-  --accent-rose: #f43f5e;
-  --accent-purple: #a855f7;
-
-  /* Typography */
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'Fira Code', monospace;
-
-  /* Layout */
-  --max-width: 1200px;
+ :root {
+ --bg-canvas:#0c0e12;--bg-surface:#13171f;--bg-elevated:#1a1f2c;--border-subtle:rgba(255,255,255,.11);--border-medium:rgba(255,255,255,.22);--focus:#38bdf8;
+ --text-display:#f8fafc;--text-body:#cbd5e1;--text-muted:#a5b0bf;--accent-primary:#38bdf8;
+ --font-display:'Newsreader',Georgia,serif;--font-sans:'DM Sans',Arial,sans-serif;--font-mono:'Cascadia Code',Consolas,monospace;
+ --max-width:1200px;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-6:24px;--space-8:32px;--space-12:48px;--space-16:64px;--space-24:96px;
+ /* Compatibility aliases for legacy components during migration. */
+ --bg-main:var(--bg-canvas);--bg-card:var(--bg-surface);--text-primary:var(--text-display);--text-secondary:var(--text-body);--font-heading:var(--font-display);--accent-blue:var(--accent-primary);
 }

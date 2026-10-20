@@ -47,7 +47,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
             objectFit: 'contain',
             borderRadius: '12px',
             border: '1px solid var(--border-glass-hover)',
-            boxShadow: '0 25px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 242, 254, 0.25)'
+            boxShadow: '0 25px 60px rgba(0, 0, 0, 0.85)'
           }}
         />
 
@@ -57,9 +57,10 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
           rel="noreferrer"
           style={{
             marginTop: '1rem',
-            color: 'var(--accent-cyan)',
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.8rem',
+            color: 'var(--accent-blue-hover)',
+            fontFamily: 'var(--font-heading)',
+            fontSize: '0.82rem',
+            fontWeight: 600,
             display: 'inline-flex',
             alignItems: 'center',
             gap: '0.4rem',

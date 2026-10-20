@@ -26,9 +26,14 @@ dist-ssr
 .tempmediaStorage
 
 # Raw offline data science projects and local source archives
-Projects/
+Projects/**
+!Projects/*/
+!Projects/*/README.md
 Certifications/
 *.docx
 /*.pdf
 Foto KTM.jpg
 prototype_hero.html
+
+# Local implementation snapshots
+.superpowers/
