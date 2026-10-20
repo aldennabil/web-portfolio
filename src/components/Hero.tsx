@@ -1,73 +1,39 @@
-import React from 'react'
-import { Profile } from '../types'
-import { Github, Linkedin, BookOpen, Mail, MapPin } from 'lucide-react'
+import { Locale } from '../types'
+import { messages } from '../i18n/messages'
+import { PROFILE_DATA } from '../data/profile'
+import { SKILL_CATEGORIES } from '../data/skills'
+import { localized } from '../lib/portfolio-content'
+import { ProfileSocials } from './ProfileSocials'
+import { Navigate } from '../hooks/usePortfolioLocation'
 
-interface HeroProps {
-  profile: Profile;
-}
-
-export const Hero: React.FC<HeroProps> = ({ profile }) => {
-  return (
-    <section className="section-wrapper" style={{ paddingTop: '5.5rem' }}>
-      <div className="hero-content">
-        
-        {/* Centered Avatar */}
-        <div className="avatar-wrapper">
-          <img 
-            src={profile.avatarPath} 
-            alt={profile.fullName} 
-            className="avatar-img"
-          />
-          <div className="avatar-badge" title="Data Science Student">
-            🎓
-          </div>
-        </div>
-
-        {/* Hero Title & Bio */}
-        <h1 className="hero-title">
-          {profile.fullName}
-        </h1>
-
-        <p className="hero-tagline">
-          Statistics &amp; Data Science undergraduate at <strong>{profile.university}</strong> (GPA: <strong>{profile.gpa}</strong>) specializing in Tabular Machine Learning, BI Data Modeling, and Econometric Risk Analytics.
-          <span className="blinking-cursor"></span>
-        </p>
-
-        {/* Action Buttons */}
+export function Hero({ lang, navigate }: { lang: Locale; navigate: Navigate }) {
+  const t = messages(lang)
+  const award = `?lang=${lang}&project=gammafest`
+  const projectsHref = `?lang=${lang}#projects`
+  return <section id="about" className="hero-section" aria-labelledby="hero-title" tabIndex={-1}>
+    <div className="hero-grid">
+      <div className="hero-copy">
+        <span className="hero-eyebrow">{t.eyebrow}</span>
+        <h1 id="hero-title"><span>Alden</span>{' '}<em>Effendy</em></h1>
+        <p className="hero-intro">{t.intro}</p>
+        <div className="hero-intersections">{SKILL_CATEGORIES.map(category => {
+          const href = `?lang=${lang}#skills-${category.id}`
+          return <a className="simple-intersection" href={href} onClick={event => navigate(href, event)} key={category.id}>{localized(category.label, lang).text}</a>
+        })}</div>
         <div className="hero-actions">
-          <a href="#projects" className="btn btn-primary">
-            <span>Explore Projects ⚡</span>
-          </a>
-          <a href="#experience" className="btn btn-glass">
-            <span>View Experience ➔</span>
-          </a>
+          <a className="button primary" href={projectsHref} onClick={event => navigate(projectsHref, event)}>{t.selected}<span aria-hidden="true">↗</span></a>
+          <a className="text-link" href={PROFILE_DATA.resumePath} download>{t.cv}<span aria-hidden="true">↓</span></a>
         </div>
-
-        {/* Social / Contact Badges */}
-        <div className="social-pills-row">
-          <a href={profile.github} target="_blank" rel="noopener noreferrer" className="social-pill">
-            <Github size={13} />
-            <span>GitHub</span>
-          </a>
-          <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="social-pill">
-            <Linkedin size={13} />
-            <span>LinkedIn</span>
-          </a>
-          <a href={profile.medium} target="_blank" rel="noopener noreferrer" className="social-pill">
-            <BookOpen size={13} />
-            <span>Medium</span>
-          </a>
-          <a href={`mailto:${profile.email}`} className="social-pill">
-            <Mail size={13} />
-            <span>Email</span>
-          </a>
-          <div className="social-pill" style={{ cursor: 'default' }}>
-            <MapPin size={13} />
-            <span>{profile.location}</span>
-          </div>
-        </div>
-
       </div>
-    </section>
-  )
+      <aside className="identity">
+        <div className="portrait-wrap"><img src="/images/portrait.jpg" width="480" height="520" alt="Alden Nabil Wibowo Effendy" fetchPriority="high" /></div>
+        <ProfileSocials />
+        <div className="identity-record">
+          <p>{t.degree}<br /><strong>{t.program}</strong></p>
+          <div className="academic-line"><span>IPB University</span><span className="gpa">3.83<span> / 4.00</span></span></div>
+          <a href={award} onClick={event => navigate(award, event)} className="award-line"><span aria-hidden="true">↗</span>{t.distinction}</a>
+        </div>
+      </aside>
+    </div>
+  </section>
 }

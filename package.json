@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "projects:sync": "tsx scripts/sync-projects.ts",
+    "projects:validate": "tsx scripts/sync-projects.ts --validate-only"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -16,9 +18,12 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@types/node": "^24.19.2",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
+    "gray-matter": "^4.0.3",
+    "tsx": "^4.23.13",
     "typescript": "^5.4.5",
     "vite": "^5.3.1",
     "vitest": "^2.0.0"

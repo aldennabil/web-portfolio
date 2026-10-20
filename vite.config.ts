@@ -6,6 +6,17 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
-    open: true
+    watch: {
+      ignored: [
+        '**/.superpowers/**',
+        '**/Projects/**',
+        '**/Experience/**',
+        '**/Certifications/**',
+        '**/*.pdf',
+        '**/*.docx',
+        '**/*.ipynb',
+        '**/*.csv'
+      ]
+    }
   }
 })
